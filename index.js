@@ -88,7 +88,7 @@ function validarCurp(curp) {
   const mes = +curp.substring(6, 8);
   const dia = +curp.substring(8, 10);
   // Verificamos los meses
-  if (mes > 12) {
+  if (mes > 12 || mes === 0) {
     Swal.fire("Error", "Identificador de mes incorrecto", "error");
     return;
   }
@@ -102,6 +102,10 @@ function validarCurp(curp) {
     }
   }
   // Ya si no es bisiesto verificamos los dias
+  if (dia === 0) {
+    Swal.fire("Error", "Identificador de dia incorrecto", "error");
+    return;
+  }
   if (mes % 2 === 0 && mes !== 2 && dia > 30) {
     Swal.fire("Error", "Identificador de dia incorrecto", "error");
     return;
