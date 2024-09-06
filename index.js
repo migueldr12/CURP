@@ -35,19 +35,20 @@ const estados = [
   "NE",
 ];
 
+const curp = document.getElementById("txtCURP").value;
+const rfc = document.getElementById("txtRFC").value;
+
 document.getElementById("btnCurp").addEventListener("click", (e) => {
   e.preventDefault;
-  const curp = document.getElementById("txtCURP").value;
   if (curp !== "") {
     validarCurp(curp);
   } else {
     Swal.fire("Error", "Campo de curp vacio", "error");
   }
 });
+
 document.getElementById("btnRFC").addEventListener("click", (e) => {
   e.preventDefault;
-  const curp = document.getElementById("txtCURP").value;
-  const rfc = document.getElementById("txtRFC").value;
   if (curp !== "") {
     if (rfc !== "") {
       validarRFC(curp, rfc);
